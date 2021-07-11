@@ -5,13 +5,23 @@ let addCount = document.getElementById("addCount");
 let counter = 0;
 
 lowerCount.addEventListener("click", () => {
-  counter--;
+  if (counter === 0) {
+    counter = 0;
+    document.getElementById("error").innerHTML = "Minimum value reached!";
+  } else {
+    counter--;
+    document.getElementById("error").innerHTML = "";
+  }
   countNumber.innerHTML = counter;
-  counter = Math.min(49, Math.max(1, counter));
 });
 
 addCount.addEventListener("click", () => {
-  counter++;
+  if (counter === 50) {
+    counter = 50;
+    document.getElementById("error").innerHTML = "Maximum value reached!";
+  } else {
+    counter++;
+    document.getElementById("error").innerHTML = "";
+  }
   countNumber.innerHTML = counter;
-  counter = Math.min(49, Math.max(1, counter));
 });
